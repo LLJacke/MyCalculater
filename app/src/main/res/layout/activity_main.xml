@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/tv_input"
+        android:layout_below="@+id/rg_bin"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
@@ -341,6 +341,39 @@
             android:textSize="30sp" />
 
     </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/rg_bin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_input"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_decimal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/rb_dec"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/rb_octal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/rb_oct"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/rb_binary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/rb_bin"
+            android:textSize="20sp" />
+    </RadioGroup>
 
     <TextView
         android:id="@+id/tv_output"

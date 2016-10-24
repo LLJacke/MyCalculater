@@ -24,4 +24,7 @@
     <string name="bt_cube">^3</string>
     <string name="bt_sin">sin</string>
     <string name="bt_cos">cos</string>
+    <string name="rb_bin">二进制</string>
+    <string name="rb_dec">十进制</string>
+    <string name="rb_oct">八进制</string>
 </resources>
