@@ -27,4 +27,8 @@
     <string name="rb_bin">二进制</string>
     <string name="rb_dec">十进制</string>
     <string name="rb_oct">八进制</string>
+    <string name="it_exit">exit</string>
+    <string name="it_cvs">unit conversion</string>
+    <string name="it_help">help</string>
+    <string name="it_back">back</string>
 </resources>

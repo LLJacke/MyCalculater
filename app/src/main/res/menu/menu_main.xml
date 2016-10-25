@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/it_cvs"
+        android:title="@string/it_cvs" />
+    <item
+        android:id="@+id/it_help"
+        android:title="@string/it_help"/>
+    <item
+        android:id="@+id/it_exit"
+        android:title="@string/it_exit" />
+</menu>

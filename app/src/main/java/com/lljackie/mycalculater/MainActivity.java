@@ -1,12 +1,16 @@
 package com.lljackie.mycalculater;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -113,6 +117,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.it_cvs: {
+                Intent intent = new Intent(MainActivity.this, ConversionActivity.class);
+                startActivity(intent);
+            }
+            break;
+            case R.id.it_help:
+                Toast.makeText(this, "这是帮助。", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.it_exit:
+                finish();
+                break;
+            default:
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     int flag = 0;           //是否已做过计算的标识，计算完毕置1，重新开始计算时置0
     int checked = 1;        //当前单选所选选项标识，1为10进制，2为8进制，3为2进制
 
@@ -160,6 +191,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     tv_input.setText("0");
                 } else {
                     String result = getResult();
+                    if ("error".equals(result))
+                        break;
                     tv_output.setText(result + " " + ((Button) v).getText().toString());
                     tv_input.setText("0");
                 }
@@ -283,8 +316,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (y < 0) {                //对于负号的判断，似乎有负号转换函数会出错
                         y = -y;
                         tv_input.setText("-" + Integer.toOctalString(y));
-                    }
-                    else
+                    } else
                         tv_input.setText(Integer.toOctalString(y));
                 }
                 if (checked == 3) {
@@ -292,8 +324,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (s.charAt(0) == '-') {
                         s = s.substring(1, s.length());
                         tv_input.setText("-" + Integer.toOctalString(Integer.parseInt(s)));
-                    }
-                    else
+                    } else
                         tv_input.setText(Integer.toOctalString(Integer.parseInt(s)));
                 }
 
@@ -327,8 +358,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (y < 0) {
                         y = -y;
                         tv_input.setText("-" + Integer.toBinaryString(y));
-                    }
-                    else
+                    } else
                         tv_input.setText(Integer.toBinaryString(y));
                 }
                 if (checked == 2) {
@@ -336,8 +366,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (s.charAt(0) == '-') {
                         s = s.substring(1, s.length());
                         tv_input.setText("-" + Integer.toBinaryString(Integer.parseInt(s)));
-                    }
-                    else
+                    } else
                         tv_input.setText(Integer.toBinaryString(Integer.parseInt(s)));
                 }
 
