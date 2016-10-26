@@ -1,8 +1,10 @@
 package com.lljackie.mycalculater;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -134,7 +135,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             break;
             case R.id.it_help:
-                Toast.makeText(this, "这是帮助。", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setMessage("Designer: LLJackie \nID: 2014010129")
+                        .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .setTitle("Calculator");
+                builder.show();
                 break;
             case R.id.it_exit:
                 finish();
@@ -309,7 +319,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             break;
             case R.id.rb_octal: {
-                int y = Integer.parseInt(input);
+                int y = (int) Double.parseDouble(input);
                 if (checked == 2)
                     break;
                 if (checked == 1) {
@@ -351,7 +361,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             break;
             case R.id.rb_binary: {
-                int y = Integer.parseInt(input);
+                int y = (int) Double.parseDouble(input);
                 if (checked == 3)
                     break;
                 if (checked == 1) {
